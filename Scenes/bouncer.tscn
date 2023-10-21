@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnb7thkxcjxhv"]
+
+[ext_resource type="Texture2D" uid="uid://dg3c3d4d854sy" path="res://Assets/obstacles/tilemap_packed (copy).png" id="1_edsoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01anh"]
+size = Vector2(104, 14)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_01anh")
+
+[node name="TilemapPacked(copy)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.999998, 0)
+scale = Vector2(1.92105, 1)
+texture = ExtResource("1_edsoc")

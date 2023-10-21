@@ -1,1 +1,5 @@
 res://Scenes/main.tscn
+res://Scenes/world.tscn
+res://Scenes/player.tscn
+res://Scripts/player.gd
+res://Scenes/bouncer.tscn

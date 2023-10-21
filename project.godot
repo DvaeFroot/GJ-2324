@@ -26,3 +26,7 @@ project/assembly_name="puckOrBePucked"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_4="bouncer"
