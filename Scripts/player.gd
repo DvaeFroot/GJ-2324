@@ -49,6 +49,10 @@ func _physics_process(delta: float) -> void:
 				velocity = velocity.bounce(collision.get_normal()) * 0.6
 				move_and_collide(reflect)
 		if velocity == Vector2.ZERO and not turn_ended:
+			if $"../EnemyLayer".get_child_count() == 0:
+				print("level finish")
+				get_tree().change_scene_to_file("res://Scenes/main.tscn")
+			
 			print("Turn has ended")
 			turn_ended = true
 			end_turn.emit()
@@ -80,3 +84,4 @@ func _on_knockback_box_area_entered(area: Area2D) -> void:
 	var other: CharacterBody2D = area.get_parent()
 	if GameManaager.is_player_turn:
 		other.bumped()
+		

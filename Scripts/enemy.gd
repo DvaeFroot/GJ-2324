@@ -36,3 +36,8 @@ func bumped() -> void:
 	timer.start()
 	await timer.timeout
 	queue_free()
+	# var enemies = get_tree().get_nodes_in_group("Enemy")
+	# print(enemies.size())
+	# if enemies.size() == 1:
+		# print("level complete")
+		# get_tree().change_scene_to_file("res://Scenes/main.tscn")
