@@ -9,6 +9,7 @@ const DEADZONE = 50
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_on_hold: bool = false
+var is_moving: bool = false
 
 var force_line: Line2D
 var line_curve: Curve
@@ -27,7 +28,7 @@ func _ready():
 	force_line = Line2D.new() # Create a new Sprite2D.
 	force_line.z_index = -1
 	force_line.width_curve = line_curve
-	force_line.default_color = Color(0.1, 0.99, 0.2, 255/255)
+	force_line.default_color = Color(0.1, 0.99, 0.2, 1)
 	get_tree().current_scene.call_deferred("add_child", force_line)
 
 
@@ -51,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		if velocity == Vector2.ZERO and not turn_ended:
 			print("Turn has ended")
 			turn_ended = true
+			is_moving = false
 			end_turn.emit()
 	
 	
@@ -60,7 +62,8 @@ func _input(event: InputEvent) -> void:
 			return
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				if global_position.distance_to(get_global_mouse_position()) <= DEADZONE:
+				if global_position.distance_to(get_global_mouse_position()) <= DEADZONE and not is_moving:
+					is_moving = true
 					is_on_hold = true
 					force_line.visible = true
 					force_line.clear_points()

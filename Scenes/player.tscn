@@ -15,6 +15,12 @@ collision_mask = 6
 input_pickable = true
 script = ExtResource("1_ta7po")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0745098)
+position = Vector2(-11.6667, 31.6667)
+scale = Vector2(1.02342, 1.02342)
+texture = ExtResource("2_ipnif")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ipnif")
 

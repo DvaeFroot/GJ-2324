@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://daoq45gb5rrwk"]
+
+[ext_resource type="Texture2D" uid="uid://31681ax3bpu" path="res://Sprites/spotlight_5.png" id="1_o0mv7"]
+
+[sub_resource type="Curve" id="Curve_0u7d4"]
+_data = [Vector2(0.0174417, 1), 0.0, 0.0, 0, 0, Vector2(0.831395, 0.190926), 0.0, 0.0, 0, 0, Vector2(0.974508, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="ice_trail" type="CPUParticles2D"]
+texture = ExtResource("1_o0mv7")
+emission_shape = 1
+emission_sphere_radius = 4.0
+gravity = Vector2(0, 50)
+scale_amount_min = 0.0
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_0u7d4")

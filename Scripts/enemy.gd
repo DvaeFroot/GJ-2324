@@ -21,6 +21,11 @@ func _physics_process(delta: float) -> void:
 		turn_ended = true
 	velocity = velocity.move_toward(Vector2.ZERO, 300 * delta)
 	move_and_slide()
+	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	if collision:
+			var reflect = collision.get_remainder().bounce(collision.get_normal())
+			velocity = velocity.bounce(collision.get_normal()) * 0.6
+			move_and_collide(reflect)
 
 func move() -> void:
 	turn_ended = false
@@ -32,7 +37,7 @@ func bumped() -> void:
 	velocity = direction * 300
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 0.2
+	timer.wait_time = 0.3
 	timer.start()
 	await timer.timeout
 	queue_free()
