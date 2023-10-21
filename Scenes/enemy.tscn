@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8xxxnwu7t6gg"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hct1g"]
+[ext_resource type="Texture2D" uid="uid://b76xenamb7j33" path="res://Sprites/puck_red.svg" id="2_4o102"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u15tk"]
+radius = 67.0671
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aocai"]
+radius = 71.6667
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(0.6, 0.6)
+collision_layer = 2
+script = ExtResource("1_hct1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4o102")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u15tk")
+
+[node name="KnockbackBox" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackBox"]
+shape = SubResource("CircleShape2D_aocai")
