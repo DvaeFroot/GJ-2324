@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://df7q4kw36hf7p"]
+[gd_scene load_steps=7 format=3 uid="uid://df7q4kw36hf7p"]
 
 [ext_resource type="PackedScene" uid="uid://cnqdt8gamolix" path="res://Scenes/player.tscn" id="1_33fsp"]
 [ext_resource type="Texture2D" uid="uid://dehc8uvxtaj2l" path="res://Sprites/arena.svg" id="1_tjovf"]
-[ext_resource type="PackedScene" uid="uid://c8xxxnwu7t6gg" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
+[ext_resource type="PackedScene" uid="uid://dqjp0464nbo6j" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
+[ext_resource type="AudioStream" uid="uid://cv6woxygj6tax" path="res://bg-calm.wav" id="4_bn8rd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asiw3"]
 size = Vector2(110, 1330)
@@ -11,8 +12,8 @@ size = Vector2(110, 1330)
 size = Vector2(1970, 122)
 
 [node name="Main" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [-618.0, 613.0]
-metadata/_edit_vertical_guides_ = [-929.0, -1035.0, 937.0, 1033.0]
+metadata/_edit_horizontal_guides_ = [-618.0, 613.0, -366.0, 376.0]
+metadata/_edit_vertical_guides_ = [-842.0, -1030.0, 856.0, 1033.0, -331.0, 321.0]
 
 [node name="Arena" type="Sprite2D" parent="."]
 z_index = -2
@@ -58,3 +59,6 @@ shape = SubResource("RectangleShape2D_2yvij")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2, -511)
 shape = SubResource("RectangleShape2D_2yvij")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bn8rd")
