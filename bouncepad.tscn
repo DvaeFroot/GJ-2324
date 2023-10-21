@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://0o61i4q2yeed"]
+
+[ext_resource type="Texture2D" uid="uid://b4eccdukbg3tj" path="res://kenney_pixel-platformer/Tilemap/tilemap_packed (copy).png" id="1_q3xyp"]
+
+[node name="bouncepad" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(52, -7, 52, -11, 54, -11, 54, -13, 57, -13, 57, -16, 67, -16, 67, 16, 57, 16, 57, 14, 55, 14, 55, 11, 52, 11, 52, 7, -50, 7, -50, 11, -52, 11, -52, 14, -54, 13, -54, 16, -65, 16, -64, -16, -55, -16, -55, -13, -52, -13, -52, -11, -50, -11, -50, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4.05312e-06, 0.156251)
+scale = Vector2(2.42105, 2.23958)
+texture = ExtResource("1_q3xyp")

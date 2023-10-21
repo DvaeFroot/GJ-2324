@@ -16,6 +16,17 @@ func _ready() -> void:
 	player = get_tree().current_scene.get_node("Player")
 
 func _physics_process(delta: float) -> void:
+	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	if collision:
+		var reflect = collision.get_remainder().bounce(collision.get_normal())
+		velocity = velocity.bounce(collision.get_normal()) * 0.6
+		print(collision.get_collider())
+		if collision.get_collider() == $"../../bouncepad":
+			print("test")
+			velocity *= 10
+		else:
+			print("fail")
+		move_and_collide(reflect)
 	if velocity == Vector2.ZERO and turn_ended == false:
 		end_turn.emit()
 		turn_ended = true
@@ -35,9 +46,7 @@ func bumped() -> void:
 	timer.wait_time = 0.2
 	timer.start()
 	await timer.timeout
-	queue_free()
-	# var enemies = get_tree().get_nodes_in_group("Enemy")
-	# print(enemies.size())
-	# if enemies.size() == 1:
-		# print("level complete")
-		# get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:r", 0, 0.2)
+	tween.tween_callback(queue_free)
+	# queue_free()

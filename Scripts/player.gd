@@ -15,6 +15,9 @@ var line_curve: Curve
 var direction: Vector2
 var vel: Vector2
 var force_factor: float = 0
+var level: int = 1
+var exp: int = 0
+var exp_to_next_level = 100*(level/2)
 
 var turn_ended = true
 
@@ -45,9 +48,12 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION*delta)
 		var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 		if collision:
-				var reflect = collision.get_remainder().bounce(collision.get_normal())
-				velocity = velocity.bounce(collision.get_normal()) * 0.6
-				move_and_collide(reflect)
+			var reflect = collision.get_remainder().bounce(collision.get_normal())
+			velocity = velocity.bounce(collision.get_normal()) * 0.6
+			# print(collision.get_collider())
+			if collision.get_collider() == $"../bouncepad":
+				velocity *= 10
+			move_and_collide(reflect)
 		if velocity == Vector2.ZERO and not turn_ended:
 			if $"../EnemyLayer".get_child_count() == 0:
 				print("level finish")
