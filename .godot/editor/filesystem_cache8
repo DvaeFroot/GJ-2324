@@ -1,0 +1,28 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1697864614
+icon.png::CompressedTexture2D::5064881373660139178::1697861852::1697861975::1::::<><>::
+icon.svg::CompressedTexture2D::353135420470324718::1697861852::1697861975::1::::<><>::
+::res://addons/::1697861852
+::res://addons/godot_vim/::1697861974
+hack_regular.ttf::FontFile::2070095759240327321::1697861852::1697861974::1::::<><>::
+plugin.cfg::TextFile::-1::1697861852::0::1::::<><>::
+plugin.gd::GDScript::-1::1697861852::0::1::::<>EditorPlugin<>::
+::res://Assets/::1697865102
+references.txt::TextFile::-1::1697864661::0::1::::<><>::
+::res://Assets/Enemy/::1697865113
+arrow_guide.png::CompressedTexture2D::1567774492514115702::1684237501::1697865663::1::::<><>::
+::res://Assets/Obstacles/::1697864835
+desert_ [resources].png::CompressedTexture2D::2994471141694873712::1697864389::1697865663::1::::<><>::
+tundra_ [fencesAndWalls].png::CompressedTexture2D::2890029658543606153::1697864408::1697865663::1::::<><>::
+tundra_ [resources].png::CompressedTexture2D::2347704387660033762::1697864409::1697865663::1::::<><>::
+::res://Assets/Player/::1697864979
+power1.png::CompressedTexture2D::7117548447027874302::1684237803::1697865663::1::::<><>::
+power2.png::CompressedTexture2D::1658554232188527281::1684238201::1697865663::1::::<><>::
+::res://Assets/Powerups/::1697865044
+floating.png::CompressedTexture2D::1252374643567575339::1684237609::1697865663::1::::<><>::
+::res://Scenes/::1697861852
+main.tscn::PackedScene::7577290177839982219::1697861852::0::1::::<><>::uid://cnqdt8gamolix::::res://Scenes/player.tscn<>res://Scripts/main.gd
+player.tscn::PackedScene::5718544202364052483::1697861852::0::1::::<><>::uid://fbcdavp2i58e::::res://icon.svg<>res://Scripts/player.gd
+::res://Scripts/::1697861852
+main.gd::GDScript::-1::1697861852::0::1::::<>Node2D<>::
+player.gd::GDScript::-1::1697861852::0::1::::<>CharacterBody2D<>::
