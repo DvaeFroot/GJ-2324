@@ -11,7 +11,8 @@ max_value = 66.54
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 5.15717), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.6, 0.6)
 input_pickable = true
 script = ExtResource("1_ta7po")
 
