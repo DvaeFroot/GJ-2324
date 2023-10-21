@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnqdt8gamolix"]
+
+[ext_resource type="Texture2D" uid="uid://fbcdavp2i58e" path="res://icon.svg" id="1_nl2d6"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ta7po"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3esv"]
+radius = 64.0
+
+[sub_resource type="Curve" id="Curve_6nlrr"]
+max_value = 66.54
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 5.15717), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Player" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_ta7po")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nl2d6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k3esv")
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(-280, -92, 187, -132)
+width_curve = SubResource("Curve_6nlrr")
