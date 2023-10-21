@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8xxxnwu7t6gg"]
+[gd_scene load_steps=5 format=3 uid="uid://dqjp0464nbo6j"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hct1g"]
 [ext_resource type="Texture2D" uid="uid://b76xenamb7j33" path="res://Sprites/puck_red.svg" id="2_4o102"]
@@ -12,6 +12,7 @@ radius = 71.6667
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_hct1g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+const INITIAL_DIST_FROM_PLAYER: float = 300.0
 const ERROR: Vector2 = Vector2(0.5,0.5)
+@onready var background_music = $"../../BackgroundMusic"
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -12,6 +15,12 @@ signal end_turn
 
 func _ready() -> void:
 	player = get_tree().current_scene.get_node("Player")
+	position.x = randf_range(-840, 850)
+	position.y = randf_range(-366, 381)
+	while global_position.distance_to(player.position) <= INITIAL_DIST_FROM_PLAYER:
+		position.x = randf_range(-840, 850)
+		position.y = randf_range(-366, 381)
+	background_music.play()
 
 func _physics_process(delta: float) -> void:
 	if velocity == Vector2.ZERO and turn_ended == false:
@@ -24,7 +33,7 @@ func move() -> void:
 	turn_ended = false
 	var direction = noise(global_position.direction_to(player.global_position))
 	velocity = direction * 300
-	
+
 func bumped() -> void:
 	var direction = -global_position.direction_to(player.global_position)
 	velocity = direction * 300
