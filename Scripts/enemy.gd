@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const ERROR: Vector2 = Vector2(0.5,0.5)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -29,7 +27,7 @@ func _physics_process(delta: float) -> void:
 
 func move() -> void:
 	turn_ended = false
-	var direction = global_position.direction_to(player.global_position)
+	var direction = noise(global_position.direction_to(player.global_position))
 	velocity = direction * 300
 	
 func bumped() -> void:
@@ -41,3 +39,6 @@ func bumped() -> void:
 	timer.start()
 	await timer.timeout
 	queue_free()
+
+func noise(base: Vector2) -> Vector2:
+	return Vector2(randf_range(base.x - ERROR.x, base.x + ERROR.x), randf_range(base.y - ERROR.y, base.y + ERROR.y)) 
