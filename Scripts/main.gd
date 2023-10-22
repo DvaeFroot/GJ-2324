@@ -28,14 +28,23 @@ var noise_i: float = 0.0
 var shake_type: int = ShakeType.Random
 var shake_strength: float = 0.0
 
+var animation_player: AnimationPlayer
+
 func _ready() -> void:
 	camera = get_tree().current_scene.get_node("Player/Camera2D")
+	animation_player = get_tree().current_scene.get_node("Title/AnimationPlayer")
+	play_anim()
 	rand.randomize()
 	
 	# Randomize the generated noise
 	# noise.seed = rand.randi()
 	# Period affects how quickly the noise changes values
 	# noise.period = 2
+func play_anim() -> void:
+	while (true):
+		animation_player.play("default")
+		await animation_player.animation_finished
+		
 	
 func apply_random_shake() -> void:
 	shake_strength = RANDOM_SHAKE_STRENGTH

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="34.009663mm"
+   height="33.217094mm"
+   viewBox="0 0 34.009663 33.217094"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="bitmap.png"
+   inkscape:export-xdpi="97.580475"
+   inkscape:export-ydpi="97.580475"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="menu-assets.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="0.55622658"
+     inkscape:cx="231.91987"
+     inkscape:cy="399.11792"
+     inkscape:window-width="1860"
+     inkscape:window-height="1000"
+     inkscape:window-x="30"
+     inkscape:window-y="50"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-99.853785,-105.58725)">
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:1.472;stroke-dasharray:5.888, 1.472;stroke-dashoffset:0;stroke-opacity:1"
+       id="path9"
+       cx="116.85512"
+       cy="122.19585"
+       rx="16.272339"
+       ry="15.872505"
+       inkscape:export-filename="../Desktop/godot/puckOrBePucked/Sprites/path9.png"
+       inkscape:export-xdpi="97.580475"
+       inkscape:export-ydpi="97.580475" />
+  </g>
+</svg>

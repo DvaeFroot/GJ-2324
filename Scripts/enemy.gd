@@ -1,11 +1,8 @@
 extends CharacterBody2D
 
 @export var star_particles: PackedScene
-@export var spawn_point: Node2D
 const INITIAL_DIST_FROM_PLAYER: float = 300.0
-
 const ERROR: Vector2 = Vector2(0.5,0.5)
-@onready var background_music = $"../../BackgroundMusic"
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -17,9 +14,12 @@ var turn_ended: bool = true
 signal end_turn
 
 func _ready() -> void:
-	position = spawn_point.position
 	player = get_tree().current_scene.get_node("Player")
-	background_music.play()
+	position.x = randf_range(-840, 850)
+	position.y = randf_range(-366, 381)
+	while global_position.distance_to(player.position) <= INITIAL_DIST_FROM_PLAYER:
+		position.x = randf_range(-840, 850)
+		position.y = randf_range(-366, 381)
 
 func _physics_process(delta: float) -> void:
 	if velocity == Vector2.ZERO and turn_ended == false:
@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	if collision:
 			var reflect = collision.get_remainder().bounce(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal()) * 0.6
+			$NBumpSFX.play()
 			move_and_collide(reflect)
 
 func move() -> void:
@@ -48,6 +49,7 @@ func bumped() -> void:
 	timer.wait_time = 0.3
 	timer.start()
 	velocity = direction * 300
+	$BumpSFX.play()
 	await timer.timeout
 	end_turn.emit()
 	queue_free()

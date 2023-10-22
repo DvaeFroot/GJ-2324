@@ -5,10 +5,14 @@ var enemy_layer: Node2D
 var player: CharacterBody2D
 var health: int = 2
 
+var background_music
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().current_scene.get_node("Player")
 	enemy_layer = get_tree().current_scene.get_node("EnemyLayer")
+	background_music = get_tree().current_scene.get_node("BackgroundMusic")
+	background_music.play()
 	game_loop()
 
 
