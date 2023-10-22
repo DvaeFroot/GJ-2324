@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdjljvxhvrso2"]
+
+[ext_resource type="Texture2D" uid="uid://dai3gsvv5hc8b" path="res://Sprites/star.svg" id="1_8rit0"]
+[ext_resource type="Script" path="res://Scripts/stars.gd" id="1_g4u6k"]
+
+[node name="Stars" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_g4u6k")
+
+[node name="BigStar1" type="Sprite2D" parent="."]
+position = Vector2(-106, 0)
+texture = ExtResource("1_8rit0")
+
+[node name="BigStar2" type="Sprite2D" parent="."]
+position = Vector2(75, 0)
+texture = ExtResource("1_8rit0")
+
+[node name="SmallStar1" type="Sprite2D" parent="."]
+position = Vector2(165, 90)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8rit0")
+
+[node name="SmallStar2" type="Sprite2D" parent="."]
+position = Vector2(-197, 90)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8rit0")

@@ -15,8 +15,9 @@ func game_loop() -> void:
 	while(true):
 		is_player_turn = false
 		for enemy in enemy_layer.get_children():
-			enemy.call_deferred("move")
-			await enemy.end_turn
+			if enemy != null:
+				enemy.call_deferred("move")
+				await enemy.end_turn
 			
 		is_player_turn = true
 		await player.end_turn

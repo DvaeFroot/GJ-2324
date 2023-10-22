@@ -1,19 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnqdt8gamolix"]
+[gd_scene load_steps=6 format=3 uid="uid://cnqdt8gamolix"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ta7po"]
 [ext_resource type="Texture2D" uid="uid://eoqmbbtik3w0" path="res://Sprites/puck_green.svg" id="2_ipnif"]
+[ext_resource type="PackedScene" uid="uid://daoq45gb5rrwk" path="res://Scenes/Particles/ice_trail.tscn" id="3_urt6t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3esv"]
 radius = 64.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tt4w2"]
-radius = 75.0185
+radius = 70.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.6, 0.6)
 collision_mask = 6
 input_pickable = true
 script = ExtResource("1_ta7po")
+
+[node name="ice_trail" parent="." instance=ExtResource("3_urt6t")]
+modulate = Color(0.262745, 0.6, 0.309804, 1)
+speed_scale = 3.0
+emission_sphere_radius = 69.03
+scale_amount_max = 0.2
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.0745098)
@@ -33,7 +40,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackBox"]
 shape = SubResource("CircleShape2D_tt4w2")
 
-[node name="Line2D" type="Line2D" parent="."]
-default_color = Color(0.392157, 0.992157, 0.372549, 1)
-
 [connection signal="area_entered" from="KnockbackBox" to="." method="_on_knockback_box_area_entered"]
+[connection signal="area_exited" from="KnockbackBox" to="." method="_on_knockback_box_area_exited"]

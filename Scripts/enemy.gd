@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var star_particles: PackedScene
 const ERROR: Vector2 = Vector2(0.5,0.5)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,12 +33,16 @@ func move() -> void:
 	
 func bumped() -> void:
 	var direction = -global_position.direction_to(player.global_position)
-	velocity = direction * 300
 	var timer = Timer.new()
+	var star_particles_instance = star_particles.instantiate()
+	get_tree().current_scene.add_child(star_particles_instance)
+	star_particles_instance.global_position = global_position
 	add_child(timer)
 	timer.wait_time = 0.3
 	timer.start()
+	velocity = direction * 300
 	await timer.timeout
+	end_turn.emit()
 	queue_free()
 
 func noise(base: Vector2) -> Vector2:

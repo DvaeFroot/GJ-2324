@@ -7,6 +7,7 @@ _data = [Vector2(0.0174417, 1), 0.0, 0.0, 0, 0, Vector2(0.831395, 0.190926), 0.0
 point_count = 3
 
 [node name="ice_trail" type="CPUParticles2D"]
+speed_scale = 1.5
 texture = ExtResource("1_o0mv7")
 emission_shape = 1
 emission_sphere_radius = 4.0

@@ -2,12 +2,10 @@ extends CharacterBody2D
 
 
 const SPEED = 500.0
-const JUMP_VELOCITY = -400.0
 const FRICTION = 300
 const DEADZONE = 50
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_on_hold: bool = false
 var is_moving: bool = false
 
@@ -18,13 +16,19 @@ var vel: Vector2
 var force_factor: float = 0
 
 var turn_ended = true
+var collided = []
+
+var main
 
 signal end_turn
 
 func _ready():
+	main = get_tree().current_scene
+	$ice_trail.visible = false
 	line_curve = Curve.new()
+	line_curve.max_value = 5
 	line_curve.add_point(Vector2(1,0))
-	line_curve.add_point(Vector2(0, 5.16))
+	line_curve.add_point(Vector2(0, 7.5))
 	force_line = Line2D.new() # Create a new Sprite2D.
 	force_line.z_index = -1
 	force_line.width_curve = line_curve
@@ -40,21 +44,29 @@ func _physics_process(delta: float) -> void:
 		var dir = global_position.direction_to(get_global_mouse_position())
 		force_line.add_point(global_position + dir * clamped_dtm)
 		var size = clampf(clamped_dtm/50,0,5) 
-		force_line.width_curve.set_point_value(0, size)
+		# force_line.width_curve.set_point_value(0, size)
 		force_factor = clamped_dtm / 315	
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION*delta)
 		var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 		if collision:
+				if GameManaager.is_player_turn and len(collided) != 0:
+					var shortest_collided = 100
+					for colllided_object in collided:
+						if global_position.distance_to(colllided_object.global_position):
+							shortest_collided = colllided_object
+						shortest_collided.bumped()
+						collided.erase(shortest_collided)
+						main.apply_random_shake()
 				var reflect = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal()) * 0.6
 				move_and_collide(reflect)
 		if velocity == Vector2.ZERO and not turn_ended:
-			print("Turn has ended")
 			turn_ended = true
 			is_moving = false
+			$ice_trail.visible = false
 			end_turn.emit()
-	
+			
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -68,18 +80,19 @@ func _input(event: InputEvent) -> void:
 					force_line.visible = true
 					force_line.clear_points()
 					force_line.add_point(global_position)
-					$KnockbackBox.monitoring = false
 			else:
 				if is_on_hold:
+					$ice_trail.visible = true
 					turn_ended = false
 					is_on_hold = false
 					direction = -global_position.direction_to(get_global_mouse_position())
 					force_line.visible = false
 					velocity = direction * SPEED * force_factor
-					$KnockbackBox.monitoring = true
 
 
 func _on_knockback_box_area_entered(area: Area2D) -> void:
-	var other: CharacterBody2D = area.get_parent()
-	if GameManaager.is_player_turn:
-		other.bumped()
+	collided.append(area.get_parent())
+
+
+func _on_knockback_box_area_exited(area: Area2D) -> void:
+	collided.erase(area.get_parent())
