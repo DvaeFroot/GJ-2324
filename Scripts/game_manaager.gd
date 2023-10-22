@@ -1,11 +1,11 @@
 extends Node
 
-var is_player_turn: bool = false
 var enemy_layer: Node2D
 var player: CharacterBody2D
 var wave_has_started: bool = false
-var health = 2
+var health = 3
 var start_game: bool = false
+var is_player_turn: bool = false
 
 var background_music
 var enemy_spawners
@@ -31,6 +31,11 @@ func start_game_beh() -> void:
 	player_health_label = get_tree().current_scene.get_node("Player/CenterContainer/Label")
 	player_health = 3
 	points = 0
+	wave = 0
+	is_gameover = false
+	start_game = false
+	wave_has_started = false
+	is_player_turn = false
 	point_label.text = str(points)
 	player_health_label.text = str(player_health)
 	game_loop()
