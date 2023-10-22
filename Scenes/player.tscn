@@ -3,16 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ta7po"]
 [ext_resource type="Texture2D" uid="uid://eoqmbbtik3w0" path="res://Sprites/puck_green.svg" id="2_ipnif"]
 [ext_resource type="PackedScene" uid="uid://daoq45gb5rrwk" path="res://Scenes/Particles/ice_trail.tscn" id="3_urt6t"]
-
-[ext_resource type="Texture2D" uid="uid://cih6w6ts5ex8g" path="res://Sprites/puck_green1.png" id="4_dgy8x"]
-[ext_resource type="Texture2D" uid="uid://nu0qh5i1a64i" path="res://Sprites/puck_green2.png" id="5_m73vd"]
-[ext_resource type="Texture2D" uid="uid://gkt0xe4ao41q" path="res://Sprites/puck_green3.png" id="6_s3byg"]
-[ext_resource type="Texture2D" uid="uid://bndy5oe3rtl17" path="res://Sprites/puck_green4.png" id="7_1k56i"]
-
 [ext_resource type="AudioStream" uid="uid://nnmtiu1n8xnr" path="res://puck.mp3" id="4_oq275"]
 [ext_resource type="AudioStream" uid="uid://byrhaj6fr6u6q" path="res://NormalBump.mp3" id="5_a0k7r"]
 [ext_resource type="Texture2D" uid="uid://eqfdrqc01gsm" path="res://Sprites/selected.svg" id="6_pa61n"]
-
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3esv"]
 radius = 64.0
@@ -20,26 +13,6 @@ radius = 64.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_tt4w2"]
 radius = 70.0
 
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_78cpa"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_dgy8x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_m73vd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_s3byg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_1k56i")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 [sub_resource type="Animation" id="Animation_x5p03"]
 resource_name = "spin_and_pulse"
 length = 4.0
@@ -119,7 +92,6 @@ _data = {
 "spin_and_pulse": SubResource("Animation_x5p03")
 }
 
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.6, 0.6)
 collision_mask = 14
@@ -139,9 +111,7 @@ scale = Vector2(1.02342, 1.02342)
 texture = ExtResource("2_ipnif")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_dgy8x")
+texture = ExtResource("2_ipnif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k3esv")
@@ -151,11 +121,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackBox"]
 shape = SubResource("CircleShape2D_tt4w2")
-
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_78cpa")
 
 [node name="PuckSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_oq275")
@@ -171,7 +136,6 @@ texture = ExtResource("6_pa61n")
 libraries = {
 "": SubResource("AnimationLibrary_i8kt1")
 }
-
 
 [connection signal="area_entered" from="KnockbackBox" to="." method="_on_knockback_box_area_entered"]
 [connection signal="area_exited" from="KnockbackBox" to="." method="_on_knockback_box_area_exited"]
