@@ -182,6 +182,7 @@ position_smoothing_enabled = true
 
 [node name="EnemyLayer" type="Node2D" parent="."]
 
+<<<<<<< HEAD
 [node name="Enemy" parent="EnemyLayer" instance=ExtResource("2_mg8bs")]
 position = Vector2(517, -84)
 
@@ -190,6 +191,19 @@ position = Vector2(372, 197)
 
 [node name="Enemy3" parent="EnemyLayer" instance=ExtResource("2_mg8bs")]
 position = Vector2(-448, 202)
+=======
+[node name="Enemy" parent="EnemyLayer" node_paths=PackedStringArray("spawn_point") instance=ExtResource("2_mg8bs")]
+position = Vector2(-173, -127)
+spawn_point = NodePath("../../EnemySpawners/EnemySpawner")
+
+[node name="Enemy2" parent="EnemyLayer" node_paths=PackedStringArray("spawn_point") instance=ExtResource("2_mg8bs")]
+position = Vector2(-249, 96)
+spawn_point = NodePath("../../EnemySpawners/EnemySpawner2")
+
+[node name="Enemy3" parent="EnemyLayer" node_paths=PackedStringArray("spawn_point") instance=ExtResource("2_mg8bs")]
+position = Vector2(268, -158)
+spawn_point = NodePath("../../EnemySpawners/EnemySpawner3")
+>>>>>>> 6b0381179ba3a51ceb5279a18dcdf3cdf8eb4034
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -214,6 +228,7 @@ shape = SubResource("RectangleShape2D_2yvij")
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_rbrl0")
 
+<<<<<<< HEAD
 [node name="PlayButton" parent="." instance=ExtResource("7_elk8a")]
 position = Vector2(0, 139)
 collision_layer = 8
@@ -232,3 +247,18 @@ texture = ExtResource("7_jb3f6")
 libraries = {
 "": SubResource("AnimationLibrary_qrq7r")
 }
+=======
+[node name="EnemySpawners" type="Node2D" parent="."]
+
+[node name="EnemySpawner" type="Node2D" parent="EnemySpawners"]
+position = Vector2(-704, 318)
+
+[node name="EnemySpawner2" type="Node2D" parent="EnemySpawners"]
+position = Vector2(656, 332)
+
+[node name="EnemySpawner3" type="Node2D" parent="EnemySpawners"]
+position = Vector2(646, -312)
+
+[node name="EnemySpawner4" type="Node2D" parent="EnemySpawners"]
+position = Vector2(-716, -288)
+>>>>>>> 6b0381179ba3a51ceb5279a18dcdf3cdf8eb4034
