@@ -30,8 +30,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision:
-		print(collided)
-		if len(collided) != 0:
+		if len(collided) != 0 and not GameManaager.is_player_turn:
 			GameManaager.lose_health()
 		var reflect = collision.get_remainder().bounce(collision.get_normal())
 		velocity = velocity.bounce(collision.get_normal()) * 0.6

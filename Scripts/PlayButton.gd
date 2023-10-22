@@ -14,5 +14,6 @@ func _process(delta: float) -> void:
 func bumped() -> void:
 	var title = get_tree().current_scene.get_node("Title")
 	title.visible = false
+	GameManaager.start_game = true
 	GameManaager.finish_wave()
 	queue_free()

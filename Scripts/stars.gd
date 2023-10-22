@@ -41,5 +41,4 @@ func _process(delta: float) -> void:
 	if _scale > 1.5:
 		_scale_factor *= -1
 	_scale += _scale_factor * delta
-	print(_scale)
 	$BigStar1.self_modulate = Color(1,1,1,opacity)

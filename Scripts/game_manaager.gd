@@ -5,6 +5,7 @@ var enemy_layer: Node2D
 var player: CharacterBody2D
 var wave_has_started: bool = false
 var health = 2
+var start_game: bool = false
 
 var background_music
 var enemy_spawners
@@ -59,7 +60,7 @@ func game_loop() -> void:
 		is_player_turn = true
 		await player.end_turn
 		
-		if enemy_layer.get_child_count() == 0:
+		if enemy_layer.get_child_count() == 0 and start_game:
 			await finish_wave()
 		
 		is_player_turn = false
@@ -67,5 +68,4 @@ func game_loop() -> void:
 			for enemy in enemy_layer.get_children():
 				if enemy != null:
 					enemy.call_deferred("move")
-					print(enemy)
 					await enemy.end_turn

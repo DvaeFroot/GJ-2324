@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdjljvxhvrso2"]
 
-[ext_resource type="Texture2D" uid="uid://dai3gsvv5hc8b" path="res://Sprites/star.svg" id="1_8rit0"]
+[ext_resource type="Texture2D" uid="uid://cqfhjr3thgmr2" path="res://Sprites/star.svg" id="1_8rit0"]
 [ext_resource type="Script" path="res://Scripts/stars.gd" id="1_g4u6k"]
 
 [node name="Stars" type="Node2D"]
