@@ -21,6 +21,7 @@ var turn_ended = true
 signal end_turn
 
 func _ready():
+	GameManaager.initialize()
 	line_curve = Curve.new()
 	line_curve.add_point(Vector2(1,0))
 	line_curve.add_point(Vector2(0, 5.16))

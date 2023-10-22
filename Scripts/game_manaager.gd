@@ -5,7 +5,7 @@ var enemy_layer: Node2D
 var player: CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func initialize() -> void:
 	player = get_tree().current_scene.get_node("Player")
 	enemy_layer = get_tree().current_scene.get_node("EnemyLayer")
 	game_loop()
