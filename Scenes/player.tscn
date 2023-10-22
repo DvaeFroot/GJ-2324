@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnqdt8gamolix"]
+[gd_scene load_steps=18 format=3 uid="uid://cnqdt8gamolix"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ta7po"]
-[ext_resource type="Texture2D" uid="uid://dst8u48385r3y" path="res://Sprites/puck_green.svg" id="2_ipnif"]
-[ext_resource type="Texture2D" uid="uid://bjo0vb5o3w415" path="res://Sprites/puck_green1.png" id="3_i2c8f"]
+[ext_resource type="Texture2D" uid="uid://c157mahcedlck" path="res://Sprites/puck_green.svg" id="2_ipnif"]
+[ext_resource type="Texture2D" uid="uid://cetrlagtvn2v7" path="res://Sprites/puck_green1.png" id="3_i2c8f"]
 [ext_resource type="PackedScene" uid="uid://daoq45gb5rrwk" path="res://Scenes/Particles/ice_trail.tscn" id="3_urt6t"]
-[ext_resource type="Texture2D" uid="uid://dv7n1scspw4ov" path="res://Sprites/puck_green2.png" id="4_ms23y"]
-[ext_resource type="AudioStream" uid="uid://cvypx4hi7vdnd" path="res://puck.mp3" id="4_oq275"]
-[ext_resource type="AudioStream" uid="uid://ya0t7eci7rky" path="res://NormalBump.mp3" id="5_a0k7r"]
-[ext_resource type="Texture2D" uid="uid://bb27w6jhsq160" path="res://Sprites/puck_green3.png" id="5_bq11h"]
-[ext_resource type="Texture2D" uid="uid://61bdl3ufyf6q" path="res://Sprites/puck_green4.png" id="6_b2rb5"]
-[ext_resource type="Texture2D" uid="uid://b6lcjuu0ii5ct" path="res://Sprites/selected.svg" id="6_pa61n"]
+[ext_resource type="Texture2D" uid="uid://cp6xkny86rhau" path="res://Sprites/puck_green2.png" id="4_ms23y"]
+[ext_resource type="AudioStream" uid="uid://nnmtiu1n8xnr" path="res://puck.mp3" id="4_oq275"]
+[ext_resource type="AudioStream" uid="uid://byrhaj6fr6u6q" path="res://NormalBump.mp3" id="5_a0k7r"]
+[ext_resource type="Texture2D" uid="uid://b55xxuwsftfsa" path="res://Sprites/puck_green3.png" id="5_bq11h"]
+[ext_resource type="Texture2D" uid="uid://qmt8v6ufse2m" path="res://Sprites/puck_green4.png" id="6_b2rb5"]
+[ext_resource type="Texture2D" uid="uid://dmp10q7vgi5ac" path="res://Sprites/selected.svg" id="6_pa61n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_al3vv"]
 animations = [{
@@ -116,6 +116,9 @@ _data = {
 "spin_and_pulse": SubResource("Animation_x5p03")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrtma"]
+radius = 518.601
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.6, 0.6)
 collision_mask = 14
@@ -165,6 +168,12 @@ texture = ExtResource("6_pa61n")
 libraries = {
 "": SubResource("AnimationLibrary_i8kt1")
 }
+
+[node name="SpawnRadius" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnRadius"]
+shape = SubResource("CircleShape2D_mrtma")
 
 [connection signal="area_entered" from="KnockbackBox" to="." method="_on_knockback_box_area_entered"]
 [connection signal="area_exited" from="KnockbackBox" to="." method="_on_knockback_box_area_exited"]

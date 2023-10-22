@@ -43,6 +43,7 @@ func start_game_beh() -> void:
 	
 func update_points() -> void:
 	points += 1
+	add_health()
 	point_label.text = str(points)
 		
 	
@@ -55,10 +56,9 @@ func lose_health() -> void:
 	
 	
 func next_wave() -> void:
-	for spawner in enemy_spawners.get_children()[wave].get_children():
+	for i in 5:
 		var enemy_instance = enemy.instantiate()
 		enemy_layer.add_child(enemy_instance)
-		enemy_instance.position = spawner.position
 	wave_finished = false
 
 
@@ -69,8 +69,9 @@ func finish_wave() -> void:
 	wave += 1
 
 func add_health():
-	player_health += 1
-	player_health_label.text = str(player_health)
+	if points % 5 == 0:
+		player_health += 1
+		player_health_label.text = str(player_health)
 
 func game_loop() -> void:
 	while(not wave_finished):
@@ -82,7 +83,7 @@ func game_loop() -> void:
 			await player.end_turn
 				
 		if enemy_layer.get_child_count() == 0 and start_game:
-			await finish_wave()
+			next_wave()
 			continue
 		
 		is_player_turn = false
