@@ -69,7 +69,6 @@ func _physics_process(delta: float) -> void:
 				if GameManaager.is_player_turn:
 					var shortest_collided = 100
 					for collided_object in enemy_layer.get_children():
-						print(global_position.distance_to(collided_object.global_position))
 						if global_position.distance_to(collided_object.global_position) < 100:
 							collided_object.bumped()
 						main.apply_random_shake()
