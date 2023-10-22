@@ -21,7 +21,8 @@ font_names = PackedStringArray("Impact")
 
 [sub_resource type="LabelSettings" id="LabelSettings_bl4ro"]
 font = SubResource("SystemFont_2hy04")
-font_size = 46
+font_size = 31
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asiw3"]
 size = Vector2(110, 1330)
@@ -209,10 +210,10 @@ position_smoothing_enabled = true
 
 [node name="CenterContainer" type="CenterContainer" parent="Player"]
 custom_minimum_size = Vector2(200, 200)
-offset_left = -98.3333
-offset_top = -100.0
-offset_right = 101.667
-offset_bottom = 100.0
+offset_left = -100.0
+offset_top = -126.667
+offset_right = 100.0
+offset_bottom = 73.3333
 
 [node name="Label" type="Label" parent="Player/CenterContainer"]
 layout_mode = 2
