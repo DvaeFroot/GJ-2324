@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://fa44sehpygqo"]
+
+[ext_resource type="Texture2D" uid="uid://be6hkeltrbvh8" path="res://Sprites/bumper.png" id="1_kug6e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hw1ux"]
+height = 206.0
+
+[node name="bouncepad" type="StaticBody2D" groups=["Bouncepads"]]
+collision_layer = 8
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 0)
+scale = Vector2(0.338211, 0.461538)
+texture = ExtResource("1_kug6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_hw1ux")
