@@ -1,13 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://df7q4kw36hf7p"]
+[gd_scene load_steps=20 format=3 uid="uid://df7q4kw36hf7p"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_8wncx"]
 [ext_resource type="PackedScene" uid="uid://cnqdt8gamolix" path="res://Scenes/player.tscn" id="1_33fsp"]
-[ext_resource type="Texture2D" uid="uid://denpjpdyj16i4" path="res://Sprites/arena.svg" id="1_tjovf"]
+[ext_resource type="Texture2D" uid="uid://c2gkopq03seu7" path="res://Sprites/arena.svg" id="1_tjovf"]
 [ext_resource type="AudioStream" uid="uid://b8rdbq1ddo7tg" path="res://bg-calm.mp3" id="5_rbrl0"]
-[ext_resource type="Texture2D" uid="uid://cbsvivkm20v11" path="res://Sprites/Title.png" id="6_lwuii"]
+[ext_resource type="Texture2D" uid="uid://dq3tahweyh10y" path="res://Sprites/Title.png" id="6_lwuii"]
 [ext_resource type="PackedScene" uid="uid://doixio1yc5s0p" path="res://Scenes/PlayButton.tscn" id="7_elk8a"]
-[ext_resource type="Texture2D" uid="uid://crviyvfwv1kf2" path="res://Sprites/cursor.png" id="7_jb3f6"]
-[ext_resource type="PackedScene" uid="uid://fa44sehpygqo" path="res://Scenes/bouncepad.tscn" id="8_mklwi"]
+[ext_resource type="Texture2D" uid="uid://m8sjev4yqcww" path="res://Sprites/cursor.png" id="7_jb3f6"]
+[ext_resource type="PackedScene" path="res://Scenes/bouncepad.tscn" id="8_mklwi"]
 
 [sub_resource type="SystemFont" id="SystemFont_jstrn"]
 font_names = PackedStringArray("Fantasy")
