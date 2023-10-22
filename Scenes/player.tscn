@@ -2,76 +2,40 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ta7po"]
 [ext_resource type="Texture2D" uid="uid://eoqmbbtik3w0" path="res://Sprites/puck_green.svg" id="2_ipnif"]
+[ext_resource type="Texture2D" uid="uid://bjo0vb5o3w415" path="res://Sprites/puck_green1.png" id="3_i2c8f"]
 [ext_resource type="PackedScene" uid="uid://daoq45gb5rrwk" path="res://Scenes/Particles/ice_trail.tscn" id="3_urt6t"]
-[ext_resource type="Texture2D" uid="uid://cdqj002i0fuou" path="res://Sprites/puck_green1.png" id="4_dgy8x"]
+[ext_resource type="Texture2D" uid="uid://dv7n1scspw4ov" path="res://Sprites/puck_green2.png" id="4_ms23y"]
 [ext_resource type="AudioStream" uid="uid://nnmtiu1n8xnr" path="res://puck.mp3" id="4_oq275"]
 [ext_resource type="AudioStream" uid="uid://byrhaj6fr6u6q" path="res://NormalBump.mp3" id="5_a0k7r"]
-[ext_resource type="Texture2D" uid="uid://cat5jrbqrngn" path="res://Sprites/puck_green2.png" id="5_m73vd"]
+[ext_resource type="Texture2D" uid="uid://bb27w6jhsq160" path="res://Sprites/puck_green3.png" id="5_bq11h"]
+[ext_resource type="Texture2D" uid="uid://61bdl3ufyf6q" path="res://Sprites/puck_green4.png" id="6_b2rb5"]
 [ext_resource type="Texture2D" uid="uid://eqfdrqc01gsm" path="res://Sprites/selected.svg" id="6_pa61n"]
-[ext_resource type="Texture2D" uid="uid://ccjlq3scbfiq7" path="res://Sprites/puck_green3.png" id="6_s3byg"]
-[ext_resource type="Texture2D" uid="uid://uxgll7vg4iww" path="res://Sprites/puck_green4.png" id="7_1k56i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k3esv"]
-radius = 64.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tt4w2"]
-radius = 70.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tvqlt"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_al3vv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_dgy8x")
+"texture": ExtResource("3_i2c8f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_m73vd")
+"texture": ExtResource("4_ms23y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_s3byg")
+"texture": ExtResource("5_bq11h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_1k56i")
+"texture": ExtResource("6_b2rb5")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_mctfs"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Selected:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Selected:scale:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Selected:scale:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3esv"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tt4w2"]
+radius = 70.0
 
 [sub_resource type="Animation" id="Animation_x5p03"]
 resource_name = "spin_and_pulse"
@@ -110,6 +74,42 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3, 4)
 }
 
+[sub_resource type="Animation" id="Animation_mctfs"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selected:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selected:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Selected:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8kt1"]
 _data = {
 "RESET": SubResource("Animation_mctfs"),
@@ -128,6 +128,10 @@ speed_scale = 3.0
 emission_sphere_radius = 69.03
 scale_amount_max = 0.2
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.56, 0.56)
+sprite_frames = SubResource("SpriteFrames_al3vv")
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.0745098)
 position = Vector2(-11.6667, 31.6667)
@@ -136,7 +140,7 @@ texture = ExtResource("2_ipnif")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ipnif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k3esv")
@@ -146,10 +150,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackBox"]
 shape = SubResource("CircleShape2D_tt4w2")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_tvqlt")
 
 [node name="PuckSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_oq275")

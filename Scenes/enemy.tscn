@@ -32,7 +32,6 @@ visible = false
 shape = SubResource("CircleShape2D_u15tk")
 
 [node name="KnockbackBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackBox"]
@@ -45,3 +44,6 @@ volume_db = 3.0
 [node name="NBumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_26yul")
 volume_db = 3.0
+
+[connection signal="area_entered" from="KnockbackBox" to="." method="_on_knockback_box_area_entered"]
+[connection signal="area_exited" from="KnockbackBox" to="." method="_on_knockback_box_area_exited"]
