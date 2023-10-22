@@ -54,6 +54,9 @@ func finish_wave() -> void:
 	next_wave()
 	wave += 1
 
+func add_health():
+	player_health += 1
+	player_health_label.text = str(player_health)
 
 func game_loop() -> void:
 	while(not wave_finished):

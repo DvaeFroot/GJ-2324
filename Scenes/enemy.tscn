@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8xxxnwu7t6gg"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hct1g"]
-[ext_resource type="Texture2D" uid="uid://dhynsrwnrqn34" path="res://Sprites/puck_red.svg" id="2_4o102"]
 [ext_resource type="PackedScene" uid="uid://bdjljvxhvrso2" path="res://Scenes/Particles/stars.tscn" id="2_i47gu"]
-[ext_resource type="AudioStream" uid="uid://b6elq06pxie0m" path="res://bump.wav" id="4_bmwrp"]
-[ext_resource type="AudioStream" uid="uid://ya0t7eci7rky" path="res://NormalBump.mp3" id="5_26yul"]
+[ext_resource type="Texture2D" uid="uid://dyxrxn0vgfrdj" path="res://Sprites/puck_red.svg" id="3_sov7q"]
+[ext_resource type="AudioStream" uid="uid://4tn7xlnkqxfr" path="res://bump.wav" id="4_bmwrp"]
+[ext_resource type="AudioStream" uid="uid://byrhaj6fr6u6q" path="res://NormalBump.mp3" id="5_26yul"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u15tk"]
 radius = 67.0671
@@ -22,10 +22,10 @@ star_particles = ExtResource("2_i47gu")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.141176)
 position = Vector2(-10, 30)
-texture = ExtResource("2_4o102")
+texture = ExtResource("3_sov7q")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("2_4o102")
+texture = ExtResource("3_sov7q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
