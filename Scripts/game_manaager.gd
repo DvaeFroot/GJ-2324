@@ -4,7 +4,6 @@ var is_player_turn: bool = false
 var enemy_layer: Node2D
 var player: CharacterBody2D
 var wave_has_started: bool = false
-var health = 2
 
 var background_music
 var enemy_spawners
