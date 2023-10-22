@@ -34,6 +34,7 @@ func _ready() -> void:
 func update_points() -> void:
 	points += 1
 	point_label.text = str(points)
+	add_health()
 	
 func lose_health() -> void:
 	player_health -= 1
@@ -55,8 +56,9 @@ func finish_wave() -> void:
 	wave += 1
 
 func add_health():
-	player_health += 1
-	player_health_label.text = str(player_health)
+	if points%5 == 0:
+		player_health += 1
+		player_health_label.text = str(player_health)
 
 func game_loop() -> void:
 	while(not wave_finished):
@@ -68,6 +70,7 @@ func game_loop() -> void:
 			await player.end_turn
 				
 		if enemy_layer.get_child_count() == 0 and start_game:
+			print("pota")
 			await finish_wave()
 			continue
 		print("hello")

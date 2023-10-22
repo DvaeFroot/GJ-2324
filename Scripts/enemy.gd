@@ -44,7 +44,6 @@ func move() -> void:
 	velocity = direction * 300
 
 func bumped() -> void:
-	GameManaager.add_health()
 	var direction = -global_position.direction_to(player.global_position)
 	var timer = Timer.new()
 	var star_particles_instance = star_particles.instantiate()

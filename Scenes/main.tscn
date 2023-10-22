@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cbsvivkm20v11" path="res://Sprites/Title.png" id="6_lwuii"]
 [ext_resource type="PackedScene" uid="uid://doixio1yc5s0p" path="res://Scenes/PlayButton.tscn" id="7_elk8a"]
 [ext_resource type="Texture2D" uid="uid://crviyvfwv1kf2" path="res://Sprites/cursor.png" id="7_jb3f6"]
-[ext_resource type="PackedScene" uid="uid://fa44sehpygqo" path="res://Scenes/bouncepad.tscn" id="8_mklwi"]
+[ext_resource type="PackedScene" path="res://Scenes/bouncepad.tscn" id="8_mklwi"]
 
 [sub_resource type="SystemFont" id="SystemFont_se1bh"]
 font_names = PackedStringArray("Fantasy")
@@ -365,19 +365,3 @@ rotation = 1.5708
 [node name="bouncepad4" parent="Bouncepads" instance=ExtResource("8_mklwi")]
 position = Vector2(894, 4)
 rotation = 1.5708
-
-[node name="bouncepad5" parent="Bouncepads" instance=ExtResource("8_mklwi")]
-position = Vector2(881, -439)
-rotation = 0.785398
-
-[node name="bouncepad6" parent="Bouncepads" instance=ExtResource("8_mklwi")]
-position = Vector2(-923, 457)
-rotation = 0.785398
-
-[node name="bouncepad7" parent="Bouncepads" instance=ExtResource("8_mklwi")]
-position = Vector2(-923, -448)
-rotation = 2.35619
-
-[node name="bouncepad8" parent="Bouncepads" instance=ExtResource("8_mklwi")]
-position = Vector2(881, 454)
-rotation = 2.35619
