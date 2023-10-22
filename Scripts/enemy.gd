@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var star_particles: PackedScene
-@export var spawn_point: Node2D
 const INITIAL_DIST_FROM_PLAYER: float = 300.0
 const ERROR: Vector2 = Vector2(0.5,0.5)
 
@@ -15,7 +14,6 @@ var turn_ended: bool = true
 signal end_turn
 
 func _ready() -> void:
-	position = spawn_point.position
 	player = get_tree().current_scene.get_node("Player")
 	position.x = randf_range(-840, 850)
 	position.y = randf_range(-366, 381)
