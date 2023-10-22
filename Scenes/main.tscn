@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://df7q4kw36hf7p"]
+[gd_scene load_steps=8 format=3 uid="uid://df7q4kw36hf7p"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_8wncx"]
 [ext_resource type="PackedScene" uid="uid://cnqdt8gamolix" path="res://Scenes/player.tscn" id="1_33fsp"]
 [ext_resource type="Texture2D" uid="uid://dehc8uvxtaj2l" path="res://Sprites/arena.svg" id="1_tjovf"]
-[ext_resource type="PackedScene" uid="uid://dqjp0464nbo6j" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
-[ext_resource type="AudioStream" uid="uid://cv6woxygj6tax" path="res://bg-calm.wav" id="4_bn8rd"]
+[ext_resource type="PackedScene" uid="uid://c8xxxnwu7t6gg" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
+[ext_resource type="AudioStream" uid="uid://b8rdbq1ddo7tg" path="res://bg-calm.mp3" id="5_rbrl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asiw3"]
 size = Vector2(110, 1330)
@@ -63,4 +63,4 @@ position = Vector2(-2, -511)
 shape = SubResource("RectangleShape2D_2yvij")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_bn8rd")
+stream = ExtResource("5_rbrl0")
