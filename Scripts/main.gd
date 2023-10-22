@@ -35,6 +35,7 @@ func _ready() -> void:
 	animation_player = get_tree().current_scene.get_node("Title/AnimationPlayer")
 	play_anim()
 	rand.randomize()
+	GameManaager.start_game_beh()
 	
 	# Randomize the generated noise
 	# noise.seed = rand.randi()

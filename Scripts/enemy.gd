@@ -27,11 +27,12 @@ func _physics_process(delta: float) -> void:
 		end_turn.emit()
 		turn_ended = true
 	velocity = velocity.move_toward(Vector2.ZERO, 300 * delta)
-	move_and_slide()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	if GameManaager.is_gameover:
+		$CenterContainer.visible = true
 	if collision:
 		print(player.global_position.distance_to(global_position))
-		if not GameManaager.is_player_turn and player.global_position.distance_to(global_position) <= 90:
+		if not GameManaager.is_player_turn and player.global_position.distance_to(global_position) <= 95:
 			GameManaager.lose_health()
 		var reflect = collision.get_remainder().bounce(collision.get_normal())
 		velocity = velocity.bounce(collision.get_normal()) * 0.6
@@ -55,6 +56,9 @@ func bumped() -> void:
 	velocity = direction * 300
 	$BumpSFX.play()
 	await timer.timeout
+	if GameManaager.is_gameover:
+		await get_tree().create_timer(0.5).timeout
+		get_tree().reload_current_scene()
 	GameManaager.update_points()
 	end_turn.emit()
 	queue_free()
@@ -64,10 +68,8 @@ func noise(base: Vector2) -> Vector2:
 
 
 func _on_knockback_box_area_entered(area: Area2D) -> void:
-	print("Colliding with player", self)
 	collided.append(area.get_parent())
 
 
 func _on_knockback_box_area_exited(area: Area2D) -> void:
-	print("Uncolliding with player", self)
 	collided.erase(area.get_parent())

@@ -15,11 +15,13 @@ var points = 0
 var point_label: Label
 var player_health = 3
 var player_health_label: Label
+var is_gameover: bool = false
+var gameover_ui 
 
 @onready var enemy = preload("res://Scenes/enemy.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func start_game_beh() -> void:
+	gameover_ui = get_tree().current_scene.get_node("GameOver")
 	player = get_tree().current_scene.get_node("Player")
 	enemy_layer = get_tree().current_scene.get_node("EnemyLayer")
 	background_music = get_tree().current_scene.get_node("BackgroundMusic")
@@ -27,9 +29,12 @@ func _ready() -> void:
 	enemy_spawners = get_tree().current_scene.get_node("EnemySpawners")
 	point_label = get_tree().current_scene.get_node("CenterContainer/PointLabel")
 	player_health_label = get_tree().current_scene.get_node("Player/CenterContainer/Label")
+	player_health = 3
+	points = 0
 	point_label.text = str(points)
 	player_health_label.text = str(player_health)
 	game_loop()
+	
 	
 func update_points() -> void:
 	points += 1
@@ -39,6 +44,9 @@ func update_points() -> void:
 func lose_health() -> void:
 	player_health -= 1
 	player_health_label.text = str(player_health)
+	if player_health <= 0:
+		is_gameover = true
+		gameover_ui.visible = true
 	
 	
 func next_wave() -> void:
@@ -73,7 +81,6 @@ func game_loop() -> void:
 			print("pota")
 			await finish_wave()
 			continue
-		print("hello")
 		
 		is_player_turn = false
 		if wave_has_started:

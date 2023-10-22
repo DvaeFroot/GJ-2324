@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://df7q4kw36hf7p"]
+[gd_scene load_steps=20 format=3 uid="uid://df7q4kw36hf7p"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_8wncx"]
 [ext_resource type="PackedScene" uid="uid://cnqdt8gamolix" path="res://Scenes/player.tscn" id="1_33fsp"]
@@ -9,6 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://crviyvfwv1kf2" path="res://Sprites/cursor.png" id="7_jb3f6"]
 [ext_resource type="PackedScene" path="res://Scenes/bouncepad.tscn" id="8_mklwi"]
 
+[sub_resource type="SystemFont" id="SystemFont_jstrn"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1dm4p"]
+font = SubResource("SystemFont_jstrn")
+font_size = 116
+font_color = Color(0.662745, 0.662745, 0.662745, 1)
+
 [sub_resource type="SystemFont" id="SystemFont_se1bh"]
 font_names = PackedStringArray("Fantasy")
 
@@ -17,11 +25,10 @@ font = SubResource("SystemFont_se1bh")
 font_size = 221
 font_color = Color(0.584314, 0.584314, 0.584314, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_2hy04"]
-font_names = PackedStringArray("Impact")
+[sub_resource type="SystemFont" id="SystemFont_imiu3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bl4ro"]
-font = SubResource("SystemFont_2hy04")
+font = SubResource("SystemFont_imiu3")
 font_size = 31
 font_color = Color(0, 0, 0, 1)
 
@@ -184,6 +191,135 @@ metadata/_edit_vertical_guides_ = [-929.0, -1035.0, 937.0, 1033.0]
 [node name="Arena" type="Sprite2D" parent="."]
 z_index = -2
 texture = ExtResource("1_tjovf")
+
+[node name="GameOver" type="VBoxContainer" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.317647)
+custom_minimum_size = Vector2(1500, 0)
+offset_left = -784.0
+offset_top = -392.0
+offset_right = 748.0
+offset_bottom = 420.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver"]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="GameOver/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer/CenterContainer2"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer3" type="CenterContainer" parent="GameOver/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer/CenterContainer3"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer4" type="CenterContainer" parent="GameOver/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer/CenterContainer4"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GameOver"]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="GameOver/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer2/CenterContainer2"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer3" type="CenterContainer" parent="GameOver/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer2/CenterContainer3"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer4" type="CenterContainer" parent="GameOver/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer2/CenterContainer4"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GameOver"]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="GameOver/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer3/CenterContainer2"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer3" type="CenterContainer" parent="GameOver/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer3/CenterContainer3"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer4" type="CenterContainer" parent="GameOver/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer3/CenterContainer4"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="GameOver"]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="GameOver/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer4/CenterContainer2"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer3" type="CenterContainer" parent="GameOver/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer4/CenterContainer3"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
+
+[node name="CenterContainer4" type="CenterContainer" parent="GameOver/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOver/HBoxContainer4/CenterContainer4"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1dm4p")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 z_index = -2
