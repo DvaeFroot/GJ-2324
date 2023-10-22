@@ -19,12 +19,14 @@ var force_factor: float = 0
 
 var turn_ended = true
 var collided = []
+var enemy_layer
 
 var main
 
 signal end_turn
 
 func _ready():
+	enemy_layer = get_tree().current_scene.get_node("EnemyLayer")
 	main = get_tree().current_scene
 	$ice_trail.visible = false
 	line_curve = Curve.new()
@@ -64,14 +66,16 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION*delta)
 		var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 		if collision:
-				if GameManaager.is_player_turn and len(collided) != 0:
+				if GameManaager.is_player_turn:
 					var shortest_collided = 100
-					for colllided_object in collided:
-						if global_position.distance_to(colllided_object.global_position):
-							shortest_collided = colllided_object
-						shortest_collided.bumped()
-						collided.erase(shortest_collided)
+					for collided_object in enemy_layer.get_children():
+						print(global_position.distance_to(collided_object.global_position))
+						if global_position.distance_to(collided_object.global_position) < 100:
+							collided_object.bumped()
 						main.apply_random_shake()
+						
+					if len(collided) != 0 and not GameManaager.start_game:
+						collided[0].bumped()
 				$NBumpSFX.play()
 				var reflect = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal()) * 0.6

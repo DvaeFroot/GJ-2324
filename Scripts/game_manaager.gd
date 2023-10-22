@@ -58,10 +58,16 @@ func finish_wave() -> void:
 func game_loop() -> void:
 	while(not wave_finished):
 		is_player_turn = true
-		await player.end_turn
-		
+		if not start_game:
+			await player.end_turn
+			continue
+		else:
+			await player.end_turn
+				
 		if enemy_layer.get_child_count() == 0 and start_game:
 			await finish_wave()
+			continue
+		print("hello")
 		
 		is_player_turn = false
 		if wave_has_started:

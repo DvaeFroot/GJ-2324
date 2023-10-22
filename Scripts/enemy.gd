@@ -30,7 +30,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision:
-		if len(collided) != 0 and not GameManaager.is_player_turn:
+		print(player.global_position.distance_to(global_position))
+		if not GameManaager.is_player_turn and player.global_position.distance_to(global_position) <= 90:
 			GameManaager.lose_health()
 		var reflect = collision.get_remainder().bounce(collision.get_normal())
 		velocity = velocity.bounce(collision.get_normal()) * 0.6
@@ -63,8 +64,10 @@ func noise(base: Vector2) -> Vector2:
 
 
 func _on_knockback_box_area_entered(area: Area2D) -> void:
+	print("Colliding with player", self)
 	collided.append(area.get_parent())
 
 
 func _on_knockback_box_area_exited(area: Area2D) -> void:
-	collided.erase(area.get_parent()) # Replace with function body.
+	print("Uncolliding with player", self)
+	collided.erase(area.get_parent())
