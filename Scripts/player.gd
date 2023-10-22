@@ -47,9 +47,9 @@ func play_selected_animation() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	velocity = Vector2(clampf(velocity.x, -1000000, 1000000),clampf(velocity.y, -1000000, 1000000))
+
+	velocity = Vector2(clampf(velocity.x, -1000, 1000),clampf(velocity.y, -1000, 1000))
 	if is_moving:
-		print(velocity)
 		animated_sprite_2d.frame = 3
 	else:
 		animated_sprite_2d.frame = 2 - clampi(GameManaager.player_health, 0 ,2)
@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 				var reflect = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal()) * 0.6
 				if collision.get_collider().is_in_group("Bouncepads"):
-					velocity *= 10
+					velocity *= 5
 				move_and_collide(reflect)
 		if velocity == Vector2.ZERO and not turn_ended:
 			turn_ended = true
