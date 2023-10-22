@@ -3,6 +3,7 @@ extends Node
 var is_player_turn: bool = false
 var enemy_layer: Node2D
 var player: CharacterBody2D
+var health: int = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
