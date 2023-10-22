@@ -4,3 +4,5 @@ res://Scenes/player.tscn
 res://Scripts/enemy.gd
 res://Scripts/player.gd
 res://bouncepad.tscn
+res://Scripts/main.gd
+res://Scripts/game_manaager.gd

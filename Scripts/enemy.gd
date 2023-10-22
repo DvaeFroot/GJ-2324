@@ -16,6 +16,7 @@ var turn_ended: bool = true
 signal end_turn
 
 func _ready() -> void:
+			
 	player = get_tree().current_scene.get_node("Player")
 	position.x = randf_range(-840, 850)
 	position.y = randf_range(-366, 381)

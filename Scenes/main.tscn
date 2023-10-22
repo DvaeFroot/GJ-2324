@@ -15,8 +15,8 @@ size = Vector2(1970, 122)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8wncx")
-metadata/_edit_horizontal_guides_ = [-618.0, 613.0, 0.0, -450.0]
-metadata/_edit_vertical_guides_ = [-929.0, -1035.0, 887.0, 1033.0]
+metadata/_edit_horizontal_guides_ = [-618.0, 613.0, 0.0, -451.0]
+metadata/_edit_vertical_guides_ = [-929.0, -1035.0, 885.0, 1033.0]
 
 [node name="Arena" type="Sprite2D" parent="."]
 z_index = -2
