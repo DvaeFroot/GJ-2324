@@ -1,4 +1,6 @@
 res://Scenes/main.tscn
 res://Scenes/enemy.tscn
-res://Scripts/enemy.gd
 res://Scenes/player.tscn
+res://Scripts/enemy.gd
+res://Scripts/player.gd
+res://bouncepad.tscn

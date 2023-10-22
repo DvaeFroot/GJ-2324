@@ -32,9 +32,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision:
-			var reflect = collision.get_remainder().bounce(collision.get_normal())
-			velocity = velocity.bounce(collision.get_normal()) * 0.6
-			move_and_collide(reflect)
+		if collision.get_collider().is_in_group("player"):
+			$lose.play()
+		if collision.get_collider().is_in_group("Bouncepads"):
+			velocity *= 10
+		var reflect = collision.get_remainder().bounce(collision.get_normal())
+		velocity = velocity.bounce(collision.get_normal()) * 0.6
+		move_and_collide(reflect)
 
 func move() -> void:
 	turn_ended = false

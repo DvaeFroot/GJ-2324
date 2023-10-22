@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8xxxnwu7t6gg"]
+[gd_scene load_steps=7 format=3 uid="uid://c8xxxnwu7t6gg"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hct1g"]
 [ext_resource type="Texture2D" uid="uid://b76xenamb7j33" path="res://Sprites/puck_red.svg" id="2_4o102"]
 [ext_resource type="PackedScene" uid="uid://bdjljvxhvrso2" path="res://Scenes/Particles/stars.tscn" id="2_i47gu"]
+[ext_resource type="AudioStream" uid="uid://dixqvg6amrhtp" path="res://lose.wav" id="4_5deio"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u15tk"]
 radius = 67.0671
@@ -13,7 +14,7 @@ radius = 116.679
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
-collision_mask = 3
+collision_mask = 15
 script = ExtResource("1_hct1g")
 star_particles = ExtResource("2_i47gu")
 
@@ -35,3 +36,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackBox"]
 shape = SubResource("CircleShape2D_aocai")
+
+[node name="lose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5deio")
+volume_db = 10.0

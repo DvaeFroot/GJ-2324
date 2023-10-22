@@ -60,6 +60,8 @@ func _physics_process(delta: float) -> void:
 						main.apply_random_shake()
 				var reflect = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal()) * 0.6
+				if collision.get_collider().is_in_group("Bouncepads"):
+					velocity *= 10
 				move_and_collide(reflect)
 		if velocity == Vector2.ZERO and not turn_ended:
 			turn_ended = true
