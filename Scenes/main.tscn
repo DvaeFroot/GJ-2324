@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cnqdt8gamolix" path="res://Scenes/player.tscn" id="1_33fsp"]
 [ext_resource type="Texture2D" uid="uid://dehc8uvxtaj2l" path="res://Sprites/arena.svg" id="1_tjovf"]
 [ext_resource type="PackedScene" uid="uid://c8xxxnwu7t6gg" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
-[ext_resource type="AudioStream" uid="uid://b8rdbq1ddo7tg" path="res://bg-calm.mp3" id="5_rbrl0"]
+[ext_resource type="AudioStream" uid="uid://da72ystd2v8vo" path="res://bg-calm.mp3" id="5_rbrl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asiw3"]
 size = Vector2(110, 1330)
