@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 500.0
 const FRICTION = 300
 const DEADZONE = 50
+const MAX_FORCE = 500
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var is_on_hold: bool = false
@@ -34,9 +35,17 @@ func _ready():
 	force_line.width_curve = line_curve
 	force_line.default_color = Color(0.1, 0.99, 0.2, 1)
 	get_tree().current_scene.call_deferred("add_child", force_line)
+	play_selected_animation()
+	
+func play_selected_animation() -> void:
+	while true:
+		$AnimationPlayer.play("spin_and_pulse")
+		await $AnimationPlayer.animation_finished
 
 
 func _physics_process(delta: float) -> void:
+	if GameManaager.is_player_turn and not is_on_hold and not is_moving:
+		$Selected.visible = true
 	if is_on_hold:
 		force_line.remove_point(1)
 		var distance_to_mouse = global_position.distance_to(get_global_mouse_position())
@@ -58,6 +67,7 @@ func _physics_process(delta: float) -> void:
 						shortest_collided.bumped()
 						collided.erase(shortest_collided)
 						main.apply_random_shake()
+				$NBumpSFX.play()
 				var reflect = collision.get_remainder().bounce(collision.get_normal())
 				velocity = velocity.bounce(collision.get_normal()) * 0.6
 				move_and_collide(reflect)
@@ -80,6 +90,7 @@ func _input(event: InputEvent) -> void:
 					force_line.visible = true
 					force_line.clear_points()
 					force_line.add_point(global_position)
+					$Selected.visible = false
 			else:
 				if is_on_hold:
 					$ice_trail.visible = true
@@ -87,7 +98,8 @@ func _input(event: InputEvent) -> void:
 					is_on_hold = false
 					direction = -global_position.direction_to(get_global_mouse_position())
 					force_line.visible = false
-					velocity = direction * SPEED * force_factor
+					velocity = direction * SPEED * force_factor * 2
+					$PuckSFX.play()
 
 
 func _on_knockback_box_area_entered(area: Area2D) -> void:
