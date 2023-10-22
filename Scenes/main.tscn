@@ -1,13 +1,27 @@
-[gd_scene load_steps=14 format=3 uid="uid://df7q4kw36hf7p"]
+[gd_scene load_steps=17 format=3 uid="uid://df7q4kw36hf7p"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_8wncx"]
 [ext_resource type="PackedScene" uid="uid://cnqdt8gamolix" path="res://Scenes/player.tscn" id="1_33fsp"]
 [ext_resource type="Texture2D" uid="uid://dehc8uvxtaj2l" path="res://Sprites/arena.svg" id="1_tjovf"]
-[ext_resource type="PackedScene" uid="uid://c8xxxnwu7t6gg" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
 [ext_resource type="AudioStream" uid="uid://b8rdbq1ddo7tg" path="res://bg-calm.mp3" id="5_rbrl0"]
 [ext_resource type="Texture2D" uid="uid://ds8ixicq2u3og" path="res://Sprites/Title.png" id="6_lwuii"]
 [ext_resource type="PackedScene" uid="uid://doixio1yc5s0p" path="res://Scenes/PlayButton.tscn" id="7_elk8a"]
 [ext_resource type="Texture2D" uid="uid://c2nts6k62y0os" path="res://Sprites/cursor.png" id="7_jb3f6"]
+
+[sub_resource type="SystemFont" id="SystemFont_se1bh"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vgxjl"]
+font = SubResource("SystemFont_se1bh")
+font_size = 221
+font_color = Color(0.584314, 0.584314, 0.584314, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_2hy04"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="LabelSettings" id="LabelSettings_bl4ro"]
+font = SubResource("SystemFont_2hy04")
+font_size = 46
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asiw3"]
 size = Vector2(110, 1330)
@@ -169,6 +183,19 @@ metadata/_edit_vertical_guides_ = [-929.0, -1035.0, 937.0, 1033.0]
 z_index = -2
 texture = ExtResource("1_tjovf")
 
+[node name="CenterContainer" type="CenterContainer" parent="."]
+z_index = -2
+custom_minimum_size = Vector2(1000, 1000)
+offset_left = -510.0
+offset_top = -499.0
+offset_right = 490.0
+offset_bottom = 501.0
+
+[node name="PointLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_vgxjl")
+
 [node name="Player" parent="." instance=ExtResource("1_33fsp")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -180,10 +207,19 @@ limit_right = 1033
 limit_bottom = 613
 position_smoothing_enabled = true
 
-[node name="EnemyLayer" type="Node2D" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="Player"]
+custom_minimum_size = Vector2(200, 200)
+offset_left = -98.3333
+offset_top = -100.0
+offset_right = 101.667
+offset_bottom = 100.0
 
-[node name="Enemy" parent="EnemyLayer" instance=ExtResource("2_mg8bs")]
-position = Vector2(-480, 126)
+[node name="Label" type="Label" parent="Player/CenterContainer"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_bl4ro")
+
+[node name="EnemyLayer" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -229,14 +265,85 @@ libraries = {
 
 [node name="EnemySpawners" type="Node2D" parent="."]
 
-[node name="EnemySpawner" type="Node2D" parent="EnemySpawners"]
+[node name="Wave1" type="Node2D" parent="EnemySpawners"]
+
+[node name="EnemySpawner" type="Node2D" parent="EnemySpawners/Wave1"]
 position = Vector2(-704, 318)
 
-[node name="EnemySpawner2" type="Node2D" parent="EnemySpawners"]
+[node name="EnemySpawner2" type="Node2D" parent="EnemySpawners/Wave1"]
 position = Vector2(656, 332)
 
-[node name="EnemySpawner3" type="Node2D" parent="EnemySpawners"]
+[node name="EnemySpawner3" type="Node2D" parent="EnemySpawners/Wave1"]
 position = Vector2(646, -312)
 
-[node name="EnemySpawner4" type="Node2D" parent="EnemySpawners"]
+[node name="EnemySpawner4" type="Node2D" parent="EnemySpawners/Wave1"]
 position = Vector2(-716, -288)
+
+[node name="Wave2" type="Node2D" parent="EnemySpawners"]
+
+[node name="EnemySpawner" type="Node2D" parent="EnemySpawners/Wave2"]
+position = Vector2(-482, 318)
+
+[node name="EnemySpawner2" type="Node2D" parent="EnemySpawners/Wave2"]
+position = Vector2(471, 332)
+
+[node name="EnemySpawner3" type="Node2D" parent="EnemySpawners/Wave2"]
+position = Vector2(471, -312)
+
+[node name="EnemySpawner4" type="Node2D" parent="EnemySpawners/Wave2"]
+position = Vector2(-514, -288)
+
+[node name="EnemySpawner5" type="Node2D" parent="EnemySpawners/Wave2"]
+position = Vector2(-744, 8)
+
+[node name="EnemySpawner6" type="Node2D" parent="EnemySpawners/Wave2"]
+position = Vector2(803, 8)
+
+[node name="Wave3" type="Node2D" parent="EnemySpawners"]
+
+[node name="EnemySpawner" type="Node2D" parent="EnemySpawners/Wave3"]
+position = Vector2(-482, 318)
+
+[node name="EnemySpawner2" type="Node2D" parent="EnemySpawners/Wave3"]
+position = Vector2(471, 332)
+
+[node name="EnemySpawner3" type="Node2D" parent="EnemySpawners/Wave3"]
+position = Vector2(471, -312)
+
+[node name="EnemySpawner4" type="Node2D" parent="EnemySpawners/Wave3"]
+position = Vector2(-514, -288)
+
+[node name="EnemySpawner5" type="Node2D" parent="EnemySpawners/Wave3"]
+position = Vector2(-744, 8)
+
+[node name="EnemySpawner6" type="Node2D" parent="EnemySpawners/Wave3"]
+position = Vector2(803, 8)
+
+[node name="EnemySpawner7" type="Node2D" parent="EnemySpawners/Wave3"]
+position = Vector2(261, 8)
+
+[node name="Wave4" type="Node2D" parent="EnemySpawners"]
+
+[node name="EnemySpawner" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(-482, 318)
+
+[node name="EnemySpawner2" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(471, 332)
+
+[node name="EnemySpawner3" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(471, -312)
+
+[node name="EnemySpawner4" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(-514, -288)
+
+[node name="EnemySpawner5" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(-744, 8)
+
+[node name="EnemySpawner6" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(803, 8)
+
+[node name="EnemySpawner7" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(261, 8)
+
+[node name="EnemySpawner8" type="Node2D" parent="EnemySpawners/Wave4"]
+position = Vector2(-176, 8)

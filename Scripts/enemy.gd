@@ -8,6 +8,7 @@ const ERROR: Vector2 = Vector2(0.5,0.5)
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player: CharacterBody2D
+var collided = []
 
 var turn_ended: bool = true
 
@@ -29,10 +30,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision:
-			var reflect = collision.get_remainder().bounce(collision.get_normal())
-			velocity = velocity.bounce(collision.get_normal()) * 0.6
-			$NBumpSFX.play()
-			move_and_collide(reflect)
+		if len(collided) != 0:
+			GameManaager.lose_health()
+		var reflect = collision.get_remainder().bounce(collision.get_normal())
+		velocity = velocity.bounce(collision.get_normal()) * 0.6
+		$NBumpSFX.play()
+		move_and_collide(reflect)
 
 func move() -> void:
 	turn_ended = false
@@ -51,8 +54,17 @@ func bumped() -> void:
 	velocity = direction * 300
 	$BumpSFX.play()
 	await timer.timeout
+	GameManaager.update_points()
 	end_turn.emit()
 	queue_free()
 
 func noise(base: Vector2) -> Vector2:
 	return Vector2(randf_range(base.x - ERROR.x, base.x + ERROR.x), randf_range(base.y - ERROR.y, base.y + ERROR.y)) 
+
+
+func _on_knockback_box_area_entered(area: Area2D) -> void:
+	collided.append(area.get_parent())
+
+
+func _on_knockback_box_area_exited(area: Area2D) -> void:
+	collided.erase(area.get_parent()) # Replace with function body.
