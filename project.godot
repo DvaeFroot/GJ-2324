@@ -36,3 +36,4 @@ enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Wall"
+2d_physics/layer_4="BouncePad"

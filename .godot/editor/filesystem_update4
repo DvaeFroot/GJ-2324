@@ -3,3 +3,6 @@ res://Scripts/player.gd
 res://Scenes/main.tscn
 res://bouncepad.tscn
 res://Scripts/enemy.gd
+res://Scenes/player.tscn
+res://bumper.tscn
+res://bumper.gd

@@ -32,13 +32,13 @@ position_smoothing_enabled = true
 [node name="EnemyLayer" type="Node2D" parent="."]
 
 [node name="Enemy" parent="EnemyLayer" instance=ExtResource("2_mg8bs")]
-position = Vector2(-173, -127)
+position = Vector2(-344, -190)
 
 [node name="Enemy2" parent="EnemyLayer" instance=ExtResource("2_mg8bs")]
-position = Vector2(-249, 96)
+position = Vector2(-274, 280)
 
 [node name="Enemy3" parent="EnemyLayer" instance=ExtResource("2_mg8bs")]
-position = Vector2(268, -158)
+position = Vector2(647, 112)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -60,7 +60,19 @@ shape = SubResource("RectangleShape2D_2yvij")
 position = Vector2(-2, -511)
 shape = SubResource("RectangleShape2D_2yvij")
 
-[node name="bouncepad" parent="." instance=ExtResource("4_m0nwn")]
-position = Vector2(1, 266)
-collision_layer = 4
-collision_mask = 3
+[node name="Bouncepads" type="Node" parent="."]
+
+[node name="bouncepad" parent="Bouncepads" instance=ExtResource("4_m0nwn")]
+position = Vector2(-546, 116)
+rotation = 0.785397
+
+[node name="bouncepad2" parent="Bouncepads" instance=ExtResource("4_m0nwn")]
+position = Vector2(588, -115)
+rotation = 1.57079
+
+[node name="bouncepad3" parent="Bouncepads" instance=ExtResource("4_m0nwn")]
+position = Vector2(108, -246)
+
+[node name="bouncepad4" parent="Bouncepads" instance=ExtResource("4_m0nwn")]
+position = Vector2(136, 287)
+rotation = -0.523598

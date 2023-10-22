@@ -51,10 +51,16 @@ func _physics_process(delta: float) -> void:
 			var reflect = collision.get_remainder().bounce(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal()) * 0.6
 			# print(collision.get_collider())
-			if collision.get_collider() == $"../bouncepad":
+			if collision.get_collider().is_in_group("Bouncepads"):
 				velocity *= 10
 			move_and_collide(reflect)
 		if velocity == Vector2.ZERO and not turn_ended:
+			if exp == exp_to_next_level:
+				level += 1
+				exp = 0
+				print("level up!")
+				print(level)
+				print(exp)
 			if $"../EnemyLayer".get_child_count() == 0:
 				print("level finish")
 				get_tree().change_scene_to_file("res://Scenes/main.tscn")
@@ -90,4 +96,5 @@ func _on_knockback_box_area_entered(area: Area2D) -> void:
 	var other: CharacterBody2D = area.get_parent()
 	if GameManaager.is_player_turn:
 		other.bumped()
+		exp += 50
 		

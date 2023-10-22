@@ -20,12 +20,8 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var reflect = collision.get_remainder().bounce(collision.get_normal())
 		velocity = velocity.bounce(collision.get_normal()) * 0.6
-		print(collision.get_collider())
-		if collision.get_collider() == $"../../bouncepad":
-			print("test")
+		if collision.get_collider().is_in_group("Bouncepads"):
 			velocity *= 10
-		else:
-			print("fail")
 		move_and_collide(reflect)
 	if velocity == Vector2.ZERO and turn_ended == false:
 		end_turn.emit()
@@ -49,4 +45,4 @@ func bumped() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:r", 0, 0.2)
 	tween.tween_callback(queue_free)
-	# queue_free()
+	

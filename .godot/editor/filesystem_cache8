@@ -1,8 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1697881511
-bouncepad.tscn::PackedScene::1785551502675059275::1697881497::0::1::::<><>::uid://b4eccdukbg3tj::::res://kenney_pixel-platformer/Tilemap/tilemap_packed (copy).png
+::res://::1697888747
+bouncepad.tscn::PackedScene::1785551502675059275::1697888625::0::1::::<><>::uid://b4eccdukbg3tj::::res://kenney_pixel-platformer/Tilemap/tilemap_packed (copy).png
 icon.png::CompressedTexture2D::5064881373660139178::1697878577::1697878652::1::::<><>::
 icon.svg::CompressedTexture2D::353135420470324718::1697878577::1697878652::1::::<><>::
+bumper.tscn::PackedScene::5828208766448686408::1697888747::0::1::::<><>::
 ::res://addons/::1697878577
 ::res://addons/godot_vim/::1697878652
 hack_regular.ttf::FontFile::2070095759240327321::1697878577::1697878652::1::::<><>::
@@ -261,15 +262,16 @@ tile_0023.png::CompressedTexture2D::8968942063675316049::1697881511::1697881511:
 tile_0024.png::CompressedTexture2D::1387237622039078201::1697881511::1697881511::1::::<><>::
 tile_0025.png::CompressedTexture2D::8053728211740118013::1697881511::1697881511::1::::<><>::
 tile_0026.png::CompressedTexture2D::4824016604438252562::1697881511::1697881511::1::::<><>::
-::res://Scenes/::1697881508
-enemy.tscn::PackedScene::7137992177619589990::1697881470::0::1::::<><>::res://Scripts/enemy.gd<>uid://b76xenamb7j33::::res://Sprites/puck_red.svg
-main.tscn::PackedScene::7577290177839982219::1697881470::0::1::::<><>::uid://cnqdt8gamolix::::res://Scenes/player.tscn<>uid://dehc8uvxtaj2l::::res://Sprites/arena.svg<>uid://c8xxxnwu7t6gg::::res://Scenes/enemy.tscn
-player.tscn::PackedScene::5718544202364052483::1697878577::0::1::::<><>::res://Scripts/player.gd<>uid://eoqmbbtik3w0
-::res://Scripts/::1697881469
-enemy.gd::GDScript::-1::1697879936::0::1::::<>CharacterBody2D<>::
+::res://Scenes/::1697888625
+enemy.tscn::PackedScene::7137992177619589990::1697888625::0::1::::<><>::res://Scripts/enemy.gd<>uid://b76xenamb7j33::::res://Sprites/puck_red.svg
+main.tscn::PackedScene::7577290177839982219::1697888625::0::1::::<><>::uid://cnqdt8gamolix::::res://Scenes/player.tscn<>uid://dehc8uvxtaj2l::::res://Sprites/arena.svg<>uid://c8xxxnwu7t6gg::::res://Scenes/enemy.tscn<>uid://0o61i4q2yeed::::res://bouncepad.tscn
+player.tscn::PackedScene::5718544202364052483::1697888625::0::1::::<><>::res://Scripts/player.gd<>uid://eoqmbbtik3w0::::res://Sprites/puck_green.svg
+::res://Scripts/::1697888551
+enemy.gd::GDScript::-1::1697888551::0::1::::<>CharacterBody2D<>::
 game_manaager.gd::GDScript::-1::1697878577::0::1::::<>Node<>::
-player.gd::GDScript::-1::1697881469::0::1::::<>CharacterBody2D<>::
-::res://Sprites/::1697878652
+player.gd::GDScript::-1::1697888357::0::1::::<>CharacterBody2D<>::
+::res://Sprites/::1697889388
 arena.svg::CompressedTexture2D::7454649519072557717::1697878577::1697878652::1::::<><>::
+bumper.png::CompressedTexture2D::5945596865402944643::1697889339::1697889390::1::::<><>::
 puck_green.svg::CompressedTexture2D::310649619462633061::1697878577::1697878652::1::::<><>::
 puck_red.svg::CompressedTexture2D::4697863707846621064::1697878577::1697878652::1::::<><>::

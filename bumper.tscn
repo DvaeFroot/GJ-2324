@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpbh0nnbhd4si"]
+
+[ext_resource type="Script" path="res://bumper.gd" id="1_0gc0d"]
+[ext_resource type="Texture2D" uid="uid://cqydd2ew6crd0" path="res://Sprites/bumper.png" id="1_u054m"]
+
+[node name="Bumper" type="StaticBody2D"]
+script = ExtResource("1_0gc0d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(13, 61.1477)
+scale = Vector2(1.3587, 1.30931)
+polygon = PackedVector2Array(-46, 0, -46, 0, -46, -43, 0, -76, 46, -46, 46, 0, 42, -22, 25, -42, 0, -48, -24, -41, -40, -23)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
+position = Vector2(-1.47199, -30.6631)
+scale = Vector2(0.250332, 0.265794)
+texture = ExtResource("1_u054m")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(13, 61.1477)
+rotation = 1.5708
+scale = Vector2(1.3587, 1.30931)
+polygon = PackedVector2Array(-46, 0, -46, 0, -46, -43, 0, -76, 46, -46, 46, 0, 42, -22, 25, -42, 0, -48, -24, -41, -40, -23)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D2"]
+position = Vector2(-1.472, -31.3825)
+scale = Vector2(0.250332, 0.265794)
+texture = ExtResource("1_u054m")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+position = Vector2(13, 61.1477)
+rotation = 3.14159
+scale = Vector2(1.3587, 1.30931)
+polygon = PackedVector2Array(-46, 0, -46, 0, -46, -43, 0, -76, 46, -46, 46, 0, 42, -22, 25, -42, 0, -48, -24, -41, -40, -23)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D3"]
+position = Vector2(-1.47199, -30.6631)
+scale = Vector2(0.250332, 0.265794)
+texture = ExtResource("1_u054m")
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+position = Vector2(13, 61.1477)
+rotation = 4.71239
+scale = Vector2(1.3587, 1.30931)
+polygon = PackedVector2Array(-46, 0, -46, 0, -46, -43, 0, -76, 46, -46, 46, 0, 42, -22, 25, -42, 0, -48, -24, -41, -40, -23)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D4"]
+position = Vector2(-1.47199, -30.6631)
+scale = Vector2(0.250332, 0.265794)
+texture = ExtResource("1_u054m")
