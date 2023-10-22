@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 const SPEED = 500.0
 const FRICTION = 300
@@ -44,6 +44,10 @@ func play_selected_animation() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if is_moving:
+		animated_sprite_2d.frame = 3
+	else:
+		animated_sprite_2d.frame = 2 - clampi(GameManaager.health, 0, 2)
 	if GameManaager.is_player_turn and not is_on_hold and not is_moving:
 		$Selected.visible = true
 	if is_on_hold:
