@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_8wncx"]
 [ext_resource type="PackedScene" uid="uid://cnqdt8gamolix" path="res://Scenes/player.tscn" id="1_33fsp"]
 [ext_resource type="Texture2D" uid="uid://dehc8uvxtaj2l" path="res://Sprites/arena.svg" id="1_tjovf"]
-[ext_resource type="PackedScene" uid="uid://c8xxxnwu7t6gg" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
+[ext_resource type="PackedScene" uid="uid://dqjp0464nbo6j" path="res://Scenes/enemy.tscn" id="2_mg8bs"]
+[ext_resource type="AudioStream" uid="uid://cv6woxygj6tax" path="res://bg-calm.wav" id="4_bn8rd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asiw3"]
 size = Vector2(110, 1330)
@@ -60,3 +61,6 @@ shape = SubResource("RectangleShape2D_2yvij")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2, -511)
 shape = SubResource("RectangleShape2D_2yvij")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bn8rd")
